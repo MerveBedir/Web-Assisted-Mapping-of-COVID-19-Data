@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block main %}
+<head>
+  <style>
+  html {
+      min-height: 100%;
+  }
+   
+  body {
+      background: -webkit-linear-gradient(left, #d5e4de, #c44ce9); 
+      background: -o-linear-gradient(right, #d37bdb, #c263b2);
+      background: -moz-linear-gradient(right, #b453e0, #b376db); 
+      background: linear-gradient(to right, #7aadb6, #6ea5ca); 
+      background-color: #93B874; 
+  }
+  </style>
+  </head>  
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="color:whitesmoke">COVID-19 Tracking Webpage</h1>
+      <h2 style="color:whitesmoke">Please Login</h2>
+      <br>
+      <form action=" " method="post">
+        <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+         <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+        <input class="btn btn-primary btn-sm" type="submit" value="Login">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+  </body>
+
+{% endblock %}

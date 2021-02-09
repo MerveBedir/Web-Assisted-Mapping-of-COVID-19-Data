@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>COVID-19 Maps</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar nav-tabs nav justify-content-center navbar-expand-lg navbar-light" style="background-color: #106992;">
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item"><a href="{{ url_for('default_map') }}" class="nav-link" style="color:black">Default Map</a></li>
+          <li class="nav-item"><a href="{{ url_for('geodata_map') }}" class="nav-link" style="color:black">COVID-19 Cases Map</a></li>
+          <li class="nav-item"><a href="{{ url_for('marker_map') }}" class="nav-link" style="color:black">COVID-19 Marker Map</a></li>
+          <li class="nav-item"><a href="{{ url_for('heat_map') }}" class="nav-link" style="color:black">COVID-19 Heat Map</a></li>
+        </ul>
+        <ul class="nav justify-content-end">
+          <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link" style="color:red">Logout</a></li>
+        </ul>
+      </nav>
+      <br>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-primary">
+            {{ message }}
+          </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <br>
+      {% block main %}{% endblock %}
+    </div>
+  </body>
+</html>
